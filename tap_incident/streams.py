@@ -167,7 +167,7 @@ class AlertsStream(Stream):
     
     def __init__(self, replication_method=None, replication_key=None):
         self.replication_method = replication_method or "FULL_TABLE"
-        self.replication_key = replication_key or "created_at" if self.replication_method == "INCREMENTAL" else None
+        self.replication_key = replication_key or "created_at"
     
     def sync(self, client: IncidentClient, state: Dict[str, Any] = None) -> Iterator[Dict[str, Any]]:
         """Sync alerts."""
@@ -240,7 +240,7 @@ class CustomFieldsStream(Stream):
     
     def __init__(self, replication_method=None, replication_key=None):
         self.replication_method = replication_method or "FULL_TABLE"
-        self.replication_key = replication_key or "updated_at" if self.replication_method == "INCREMENTAL" else None
+        self.replication_key = replication_key or "updated_at"
     
     def sync(self, client: IncidentClient, state: Dict[str, Any] = None) -> Iterator[Dict[str, Any]]:
         """Sync custom fields."""
@@ -309,7 +309,7 @@ class FollowUpsStream(Stream):
     
     def __init__(self, replication_method=None, replication_key=None):
         self.replication_method = replication_method or "FULL_TABLE"
-        self.replication_key = replication_key or "updated_at" if self.replication_method == "INCREMENTAL" else None
+        self.replication_key = replication_key or "updated_at"
     
     def sync(self, client: IncidentClient, state: Dict[str, Any] = None) -> Iterator[Dict[str, Any]]:
         """Sync follow ups."""
@@ -358,7 +358,7 @@ class IncidentRolesStream(Stream):
     
     def __init__(self, replication_method=None, replication_key=None):
         self.replication_method = replication_method or "FULL_TABLE"
-        self.replication_key = replication_key or "updated_at" if self.replication_method == "INCREMENTAL" else None
+        self.replication_key = replication_key or "updated_at"
     
     def sync(self, client: IncidentClient, state: Dict[str, Any] = None) -> Iterator[Dict[str, Any]]:
         """Sync incident roles."""
@@ -407,7 +407,7 @@ class IncidentStatusesStream(Stream):
     
     def __init__(self, replication_method=None, replication_key=None):
         self.replication_method = replication_method or "FULL_TABLE"
-        self.replication_key = replication_key or "updated_at" if self.replication_method == "INCREMENTAL" else None
+        self.replication_key = replication_key or "updated_at"
     
     def sync(self, client: IncidentClient, state: Dict[str, Any] = None) -> Iterator[Dict[str, Any]]:
         """Sync incident statuses."""
@@ -468,7 +468,7 @@ class IncidentTypesStream(Stream):
     
     def __init__(self, replication_method=None, replication_key=None):
         self.replication_method = replication_method or "FULL_TABLE"
-        self.replication_key = replication_key or "updated_at" if self.replication_method == "INCREMENTAL" else None
+        self.replication_key = replication_key or "updated_at"
     
     def sync(self, client: IncidentClient, state: Dict[str, Any] = None) -> Iterator[Dict[str, Any]]:
         """Sync incident types."""
@@ -517,7 +517,7 @@ class IncidentUpdatesStream(Stream):
     
     def __init__(self, replication_method=None, replication_key=None):
         self.replication_method = replication_method or "FULL_TABLE"
-        self.replication_key = replication_key or "created_at" if self.replication_method == "INCREMENTAL" else None
+        self.replication_key = replication_key or "created_at"
     
     def sync(self, client: IncidentClient, state: Dict[str, Any] = None) -> Iterator[Dict[str, Any]]:
         """Sync incident updates."""
@@ -624,7 +624,7 @@ class SeveritiesStream(Stream):
     
     def __init__(self, replication_method=None, replication_key=None):
         self.replication_method = replication_method or "FULL_TABLE"
-        self.replication_key = replication_key or "updated_at" if self.replication_method == "INCREMENTAL" else None
+        self.replication_key = replication_key or "updated_at"
     
     def sync(self, client: IncidentClient, state: Dict[str, Any] = None) -> Iterator[Dict[str, Any]]:
         """Sync severities."""
