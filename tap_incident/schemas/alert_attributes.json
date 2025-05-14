@@ -1,22 +1,35 @@
 {
-    "type": ["object"],
-    "additionalProperties": false,
-    "properties": {
-      "id": {
-        "type": ["string"]
-      },
-      "name": {
-        "type": ["string"]
-      },
-      "array": {
-        "type": ["boolean"]
-      },
-      "type": {
-        "type": ["string"]
-      },
-      "time_extracted": {
-        "type": ["string"],
-        "format": "date-time"
-      }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "alert_id": {
+      "type": "string"
+    },
+    "attribute_type": {
+      "type": "string",
+      "enum": ["data", "metadata"]
+    },
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": ["string", "null"]
+    },
+    "display_value": {
+      "type": ["string", "null"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
     }
+  },
+  "additionalProperties": false,
+  "required": ["id", "alert_id", "attribute_type", "name", "created_at", "updated_at"]
 }

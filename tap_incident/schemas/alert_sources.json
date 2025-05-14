@@ -1,85 +1,51 @@
 {
-    "type": ["object"],
-    "additionalProperties": false,
-    "properties": {
-      "id": {
-        "type": ["string"]
-      },
-      "name": {
-        "type": ["string"]
-      },
-      "source_type": {
-        "type": ["string"]
-      },
-      "secret_token": {
-        "type": ["string", "null"]
-      },
-      "email_options": {
-        "type": ["object", "null"],
-        "properties": {
-          "email_address": {
-            "type": ["string"]
-          }
-        }
-      },
-      "jira_options": {
-        "type": ["object", "null"],
-        "properties": {
-          "project_ids": {
-            "type": ["array"],
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "template": {
-        "type": ["object"],
-        "properties": {
-          "attributes": {
-            "type": ["array"],
-            "items": {
-              "type": "object",
-              "properties": {
-                "alert_attribute_id": {
-                  "type": ["string"]
-                }
-              }
-            }
-          },
-          "description": {
-            "type": ["object"],
-            "properties": {
-              "label": {
-                "type": ["string"]
-              },
-              "literal": {
-                "type": ["string", "null"]
-              },
-              "reference": {
-                "type": ["string", "null"]
-              }
-            }
-          },
-          "title": {
-            "type": ["object"],
-            "properties": {
-              "label": {
-                "type": ["string"]
-              },
-              "literal": {
-                "type": ["string", "null"]
-              },
-              "reference": {
-                "type": ["string", "null"]
-              }
-            }
-          }
-        }
-      },
-      "time_extracted": {
-        "type": ["string"],
-        "format": "date-time"
-      }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": ["string", "null"]
+    },
+    "configuration_url": {
+      "type": ["string", "null"],
+      "format": "uri"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "api",
+        "grafana",
+        "prometheus",
+        "datadog",
+        "newrelic",
+        "pagerduty",
+        "sentry",
+        "pingdom",
+        "statuscake",
+        "cloudwatch",
+        "stackdriver",
+        "external",
+        "custom"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "time_extracted": {
+      "type": ["string"],
+      "format": "date-time"
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": ["id", "name", "source_type", "created_at", "updated_at"]
+}
